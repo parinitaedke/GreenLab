@@ -21,13 +21,13 @@ public class RecycleFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         recycleViewModel = ViewModelProviders.of(this).get(RecycleViewModel.class);
         View root = inflater.inflate(R.layout.fragment_recycle, container, false);
-        final TextView textView = root.findViewById(R.id.text_notifications);
-        recycleViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+//        final TextView textView = root.findViewById(R.id.text_notifications);
+//        recycleViewModel.getText().observe(this, new Observer<String>() {
+//            @Override
+//            public void onChanged(@Nullable String s) {
+//                textView.setText(s);
+//            }
+//        });
         return root;
     }
 }
