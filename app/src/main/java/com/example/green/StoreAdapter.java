@@ -18,6 +18,7 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.StoreViewHol
         TextView storeName;
         TextView storeLocation;
         TextView storeContact;
+        TextView storeCategory;
         ImageView imageViewIcon;
 
         public StoreViewHolder(View itemView) {
@@ -25,6 +26,7 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.StoreViewHol
             this.storeName = (TextView) itemView.findViewById(R.id.storeName);
             this.storeLocation = (TextView) itemView.findViewById(R.id.storeLocation);
             this.storeContact = (TextView) itemView.findViewById(R.id.storeContact);
+            this.storeCategory = (TextView) itemView.findViewById(R.id.category);
             this.imageViewIcon = (ImageView) itemView.findViewById(R.id.imageView);
         }
     }
@@ -47,11 +49,13 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.StoreViewHol
         TextView textViewName = holder.storeName;
         TextView textViewLocation = holder.storeLocation;
         TextView textViewContact = holder.storeContact;
+        TextView textViewCategory = holder.storeCategory;
         ImageView imageView = holder.imageViewIcon;
 
         textViewName.setText(dataSet.get(listPosition).getName());
         textViewLocation.setText(dataSet.get(listPosition).getLocation());
         textViewContact.setText(dataSet.get(listPosition).getContacts());
+        textViewCategory.setText(dataSet.get(listPosition).getCategory());
         imageView.setImageResource(dataSet.get(listPosition).getImage());
     }
 

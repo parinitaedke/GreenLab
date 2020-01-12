@@ -41,8 +41,8 @@ public class UserFragment extends Fragment {
         TextView username_text = root.findViewById(R.id.usernameProfile);
         TextView password_text = root.findViewById(R.id.passwordProfile);
         balance_txt = root.findViewById(R.id.balanceProfile);
-        username_text.setText(usr_name);
-        password_text.setText(password);
+        username_text.setText("Username: "+ usr_name);
+        password_text.setText("Password: "+ password);
         Button button = root.findViewById(R.id.getqrcode);
         qrcode = root.findViewById(R.id.qrcode);
         button.setOnClickListener(new View.OnClickListener() {
@@ -60,7 +60,7 @@ public class UserFragment extends Fragment {
                         Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
                         qrcode.setImageBitmap(bitmap);
                         String balance = sharedPreferences.getString("balance", "0");
-                        balance_txt.setText(balance);
+                        balance_txt.setText("Balance: " +balance);
 
 
                     } catch (WriterException e) {

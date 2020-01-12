@@ -26,6 +26,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.green.R;
+import com.example.green.Store;
+import com.example.green.StoreAdapter;
+
+import java.util.ArrayList;
 
 
 public class StoreFragment extends Fragment implements LocationListener {
@@ -57,8 +61,18 @@ public class StoreFragment extends Fragment implements LocationListener {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         // get sorted list of stores
-//        StoreAdapter storeAdapter = new StoreAdapter();
-//        recyclerView.setAdapter(storeAdapter);
+        ArrayList<Store> stores = new ArrayList<>();
+        Store store = new Store("Sunny", "95 Queens Park, Toronto, Ontario", "Clothes", "439-882-3000");
+        Store store1 = new Store("Wendy's", "5 King College Circle, Toronto, Ontario", "Books", "439-332-2800");
+        Store store2 = new Store("Green Organic", "95 Queens Park, Toronto, Ontario", "Organic Food", "439-882-3000");
+        Store store3 = new Store("Dear Old Friend", "58 Charles Street, Toronto, Ontario", "Toys", "338-892-2901");
+        Store store4 = new Store("Lucia's", "50 Carlton Street, Toronto, Ontario", "Clothes", "437-852-3300");
+        stores.add(store1);
+        stores.add(store2);
+        stores.add(store3);
+        stores.add(store4);
+        StoreAdapter storeAdapter = new StoreAdapter(stores);
+        recyclerView.setAdapter(storeAdapter);
         return root;
     }
 

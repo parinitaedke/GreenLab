@@ -32,10 +32,13 @@ public class EventsFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         // get sorted list of events
-        ReadExcelFileDemo readExcelFileDemo = new ReadExcelFileDemo();
-        Event event = new Event("14th December, 2019", "4:30-6:30", "badminton", "Western Atrium");
+        Event event = new Event("14th December, 2019", "4:30-6:30", "Plant Trees", "Forest Bimbo");
+        Event event1 = new Event("5th January, 2020", "3:00-5:00", "Beach Cleaning", "Sunnyside Beach");
+        Event event2 = new Event("20th January, 2020", "1:00-2:00", "Environmental Technologies Talk by Professor Sam Lee", "Isabel Beta Theta");
         ArrayList<Event> events = new ArrayList<>();
         events.add(event);
+        events.add(event1);
+        events.add(event2);
         EventAdapter eventAdapter = new EventAdapter(events);
         recyclerView.setAdapter(eventAdapter);
         return root;
