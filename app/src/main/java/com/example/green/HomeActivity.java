@@ -1,6 +1,7 @@
 package com.example.green;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +13,8 @@ import androidx.navigation.ui.NavigationUI;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomeActivity extends AppCompatActivity {
+    private SharedPreferences sharedPreferences;
+    private String SHARED_PREFS = "shared preference";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,9 +30,10 @@ public class HomeActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
-        System.out.println(getUsername());
-        System.out.println(getPassword());
-        System.out.println(getBalance());
+        sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        sharedPreferences.edit().putString("username", getUsername());
+        sharedPreferences.edit().putString("password", getPassword());
+        sharedPreferences.edit().putString("balance", getBalance());
     }
     private String getUsername() {
         Intent intent = getIntent();
