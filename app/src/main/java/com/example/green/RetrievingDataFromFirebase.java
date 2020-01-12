@@ -9,4 +9,5 @@ public class RetrievingDataFromFirebase {
         mAuth = FirebaseAuth.getInstance();
         return mAuth.getCurrentUser().getUid();
     }
+
 }

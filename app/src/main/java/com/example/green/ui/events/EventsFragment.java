@@ -11,8 +11,13 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.green.EventAdapter;
 import com.example.green.R;
+import com.example.green.StoreAdapter;
 
 public class EventsFragment extends Fragment {
 
@@ -23,13 +28,13 @@ public class EventsFragment extends Fragment {
         dashboardViewModel =
                 ViewModelProviders.of(this).get(EventViewModel.class);
         View root = inflater.inflate(R.layout.fragment_events, container, false);
-//        final TextView textView = root.findViewById(R.id.text_dashboard);
-//        dashboardViewModel.getText().observe(this, new Observer<String>() {
-//            @Override
-//            public void onChanged(@Nullable String s) {
-//                textView.setText(s);
-//            }
-//        });
+        RecyclerView recyclerView = root.findViewById(R.id.events);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        // get sorted list of events
+        EventAdapter eventAdapter = new EventAdapter();
+        recyclerView.setAdapter(eventAdapter);
         return root;
     }
 }
