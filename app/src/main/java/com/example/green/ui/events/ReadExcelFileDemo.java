@@ -15,7 +15,7 @@ public class ReadExcelFileDemo {
 
     public static void main(String[] args) {
         //Input file which needs to be parsed
-        String fileToParse = "/Users/parinitaedke/Desktop/SheHacks/app/src/main/java/com/example/green/ui/events/events.csv";
+        String fileToParse = "events.csv";
         BufferedReader fileReader = null;
 
         //Delimiter used in CSV file

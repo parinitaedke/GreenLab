@@ -1,21 +1,24 @@
 package com.example.green;
 
+import android.content.Context;
 import android.location.Location;
 
 import java.util.Comparator;
 
-public class StoreLocationComparator  implements Comparator<Location> {
+public class StoreLocationComparator  implements Comparator<Store> {
     Location currentLoc;
+    Context context;
 
-    public StoreLocationComparator(Location current){
+    public StoreLocationComparator(Location current, Context context){
         currentLoc = current;
+        this.context = context;
     }
     @Override
-    public int compare(final Location place1, final Location place2) {
-        double lat1 = place1.getLatitude();
-        double lon1 = place1.getLongitude();
-        double lat2 = place2.getLatitude();
-        double lon2 = place2.getLongitude();
+    public int compare(Store place1, Store place2) {
+        double lat1 = place1.getLatitude(context);
+        double lon1 = place1.getLongitude(context);
+        double lat2 = place2.getLatitude(context);
+        double lon2 = place2.getLongitude(context);
 
         double distanceToPlace1 = distance(currentLoc.getLatitude(), currentLoc.getLongitude(), lat1, lon1);
         double distanceToPlace2 = distance(currentLoc.getLatitude(), currentLoc.getLongitude(), lat2, lon2);

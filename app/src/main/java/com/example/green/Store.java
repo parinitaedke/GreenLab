@@ -1,20 +1,28 @@
 package com.example.green;
 
-import android.location.Location;
+import android.content.Context;
+import android.location.Address;
+import android.location.Geocoder;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Locale;
 
 public class Store {
     private String name;
     private String location;
     private String category;
     private String contacts;
-    private Location latlang;
+    private double lati;
+    private double longti;
+    private Context context;
 
     public Store(String name, String location, String category, String contacts) {
         this.name = name;
         this.location = location;
         this.category = category;
         this.contacts = contacts;
-        this.latlang = new Location(location);
+
     }
     public Store(){
 
@@ -53,6 +61,39 @@ public class Store {
     }
 
     public int getImage() {
-        return 0;
+        return R.drawable.secondhand;
     }
+
+    public void setContext(Context context) {
+        this.context = context;
+    }
+
+    public void setUpAddress(){
+        Geocoder geocoder = new Geocoder(context, Locale.getDefault());
+        String result = null;
+        try{
+            List<Address> addressList = geocoder.getFromLocationName(location, 1);
+            if (addressList != null && addressList.size() > 0) {
+                Address address = addressList.get(0);
+                lati = address.getLatitude();
+                longti = address.getLongitude();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public double getLatitude(Context context) {
+        setContext(context);
+        setUpAddress();
+        return lati;
+    }
+
+    public double getLongitude(Context context) {
+        setContext(context);
+        setUpAddress();
+        return longti;
+    }
+
 }
+

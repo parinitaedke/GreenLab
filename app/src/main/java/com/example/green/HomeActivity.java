@@ -1,14 +1,15 @@
 package com.example.green;
 
+import android.content.Intent;
 import android.os.Bundle;
-
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -26,8 +27,20 @@ public class HomeActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
+        System.out.println(getUsername());
+        System.out.println(getPassword());
+        System.out.println(getBalance());
     }
-
-
-
+    private String getUsername() {
+        Intent intent = getIntent();
+        return intent.getStringExtra("username");
+    }
+    private String getPassword() {
+        Intent intent = getIntent();
+        return intent.getStringExtra("password");
+    }
+    private String getBalance() {
+        Intent intent = getIntent();
+        return intent.getStringExtra("balance");
+    }
 }
