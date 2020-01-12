@@ -61,8 +61,8 @@ public class StoreFragment extends Fragment implements LocationListener {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         // get sorted list of stores
-//        StoreAdapter storeAdapter = new StoreAdapter();
-//        recyclerView.setAdapter(storeAdapter);
+        StoreAdapter storeAdapter = new StoreAdapter();
+        recyclerView.setAdapter(storeAdapter);
         return root;
     }
 
