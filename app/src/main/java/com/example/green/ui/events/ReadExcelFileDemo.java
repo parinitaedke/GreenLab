@@ -8,12 +8,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class ReadExcelFileDemo {
-    private ArrayList<String> date = new ArrayList<String>();
-    private ArrayList<String> time = new ArrayList<String>();
-    private ArrayList<String> name = new ArrayList<String>();
-    private ArrayList<String> location = new ArrayList<String>();
+    private static ArrayList<String> date = new ArrayList<String>();
+    private static ArrayList<String> time = new ArrayList<String>();
+    private static ArrayList<String> name = new ArrayList<String>();
+    private static ArrayList<String> location = new ArrayList<String>();
 
-    public void main(String[] args) {
+    public static void main(String[] args) {
         //Input file which needs to be parsed
         String fileToParse = "/Users/parinitaedke/Desktop/SheHacks/app/src/main/java/com/example/green/ui/events/events.csv";
         BufferedReader fileReader = null;
@@ -31,10 +31,10 @@ public class ReadExcelFileDemo {
             while ((line = fileReader.readLine()) != null) {
                 //Get all tokens available in line
                 String[] tokens = line.split(DELIMITER);
-                this.name.add(tokens[0]);
-                this.date.add(tokens[1]);
-                this.time.add(tokens[2]);
-                this.location.add(tokens[3]);
+                name.add(tokens[0]);
+                date.add(tokens[1]);
+                time.add(tokens[2]);
+                location.add(tokens[3]);
 
             }
         } catch (Exception e) {
