@@ -61,8 +61,8 @@ public class StoreFragment extends Fragment implements LocationListener {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         // get sorted list of stores
-        StoreAdapter storeAdapter = new StoreAdapter();
-        recyclerView.setAdapter(storeAdapter);
+//        StoreAdapter storeAdapter = new StoreAdapter();
+//        recyclerView.setAdapter(storeAdapter);
         return root;
     }
 
@@ -125,7 +125,6 @@ public class StoreFragment extends Fragment implements LocationListener {
     public void onLocationChanged(Location location) {
         longtitude = location.getLongitude();
         latitude = location.getLatitude();
-
     }
 
     @Override

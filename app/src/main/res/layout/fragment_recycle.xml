@@ -8,6 +8,7 @@
         android:orientation="horizontal"
         android:padding="20dp">
         <EditText
+            android:id="@+id/search_recycle"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:hint="Search Item"/>
@@ -15,7 +16,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Search"
-            android:background="#88D822"/>
+            android:background="#88D822"
+            android:id="@+id/search_btn"/>
     </LinearLayout>
 
     <ImageView
@@ -27,11 +29,14 @@
     <TextView
         android:id="@+id/recyclingLabel"
         android:layout_width="360dp"
-        android:layout_height="250dp"
+        android:layout_marginTop="40dp"
+        android:layout_height="180dp"
         android:layout_gravity="center"
         android:orientation="vertical"
-        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textColor="#000000"
         android:padding="50dp"
-        android:background="@drawable/light_green_round_button"/>
+        android:background="@drawable/light_green_round_button"
+        android:fontFamily="sans-serif-light"/>
 
 </LinearLayout>

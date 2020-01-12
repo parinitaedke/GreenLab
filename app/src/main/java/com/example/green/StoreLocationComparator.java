@@ -15,10 +15,10 @@ public class StoreLocationComparator  implements Comparator<Location> {
         double lat1 = place1.getLatitude();
         double lon1 = place1.getLongitude();
         double lat2 = place2.getLatitude();
-        double lon2 = place2.latlng.longitude;
+        double lon2 = place2.getLongitude();
 
-        double distanceToPlace1 = distance(currentLoc.latitude, currentLoc.longitude, lat1, lon1);
-        double distanceToPlace2 = distance(currentLoc.latitude, currentLoc.longitude, lat2, lon2);
+        double distanceToPlace1 = distance(currentLoc.getLatitude(), currentLoc.getLongitude(), lat1, lon1);
+        double distanceToPlace2 = distance(currentLoc.getLatitude(), currentLoc.getLongitude(), lat2, lon2);
         return (int) (distanceToPlace1 - distanceToPlace2);
     }
 

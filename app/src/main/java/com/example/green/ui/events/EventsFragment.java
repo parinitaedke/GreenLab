@@ -33,8 +33,8 @@ public class EventsFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         // get sorted list of events
-        EventAdapter eventAdapter = new EventAdapter();
-        recyclerView.setAdapter(eventAdapter);
+////        EventAdapter eventAdapter = new EventAdapter();
+//        recyclerView.setAdapter(eventAdapter);
         return root;
     }
 }
